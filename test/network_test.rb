@@ -34,5 +34,12 @@ class NetworkTest < Minitest::Test
     @nbc.add_show(@parks_and_rec)
     assert_equal "Amy Poehler", @nbc.highest_paid_actor
   end
+  #got the wierd problem ruby has with assert_equal thinking its a block, parens didnt fix
+  def test_makes_payroll
+    @nbc.add_show(@knight_rider)
+    @nbc.add_show(@parks_and_rec)
+    hash = {"David Hasselhoff" => 1600000, "William Daniels" => 1000000, "Amy Poehler" => 2000000, "Nick Offerman" => 1400000}
+    assert_equal hash,  @nbc.payroll
+  end
 
 end
